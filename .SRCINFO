@@ -1,0 +1,15 @@
+pkgbase = file-manager-git
+	pkgdesc = Tree-based terminal file manager
+	pkgver = r538.0e39106
+	pkgrel = 1
+	url = https://github.com/dcompoze/file-manager
+	arch = x86_64
+	license = MIT
+	makedepends = git
+	makedepends = cargo
+	provides = file-manager
+	conflicts = file-manager
+	source = file-manager::git+https://github.com/dcompoze/file-manager
+	sha256sums = SKIP
+
+pkgname = file-manager-git

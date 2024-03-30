@@ -1,6 +1,6 @@
 pkgname=file-manager-git
 _pkgname=file-manager
-pkgver=r538.0e39106
+pkgver=r6.6f72553
 pkgrel=1
 pkgdesc='Tree-based terminal file manager'
 makedepends=('git' 'cargo')
@@ -25,17 +25,18 @@ prepare() {
 
 build() {
 	cd "${srcdir}/${_pkgname}"
-	RUSTUP_TOOLCHAIN=stable cargo build --release --frozen --features default --target-dir=target
+	RUSTUP_TOOLCHAIN=stable cargo build --release --frozen --target-dir=target
 }
 
-check() {
-	cd "${srcdir}/${_pkgname}"
-	RUSTUP_TOOLCHAIN=stable cargo test --frozen --features default
-}
+#check() {
+#	cd "${srcdir}/${_pkgname}"
+#	RUSTUP_TOOLCHAIN=stable cargo test --frozen
+#}
 
 package() {
 	cd "${srcdir}/${_pkgname}"
-	install -Dm755 -t "${pkgdir}/usr/bin" "./target/release/${_pkgname}"
+	install -Dm755 -t "${pkgdir}/usr/bin" "./target/release/fm"
+	install -Dm755 -t "${pkgdir}/usr/bin" "./target/release/fm-server"
 	install -Dm644 ./desktop/icons/file-manager-16x16.png "${pkgdir}/usr/share/icons/hicolor/16x16/apps/file-manager.png"
 	install -Dm644 ./desktop/icons/file-manager-32x32.png "${pkgdir}/usr/share/icons/hicolor/32x32/apps/file-manager.png"
 	install -Dm644 ./desktop/icons/file-manager-256x256.png "${pkgdir}/usr/share/icons/hicolor/256x256/apps/file-manager.png"

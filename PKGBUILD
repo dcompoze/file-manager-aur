@@ -1,6 +1,6 @@
 pkgname=file-manager-git
 _pkgname=file-manager
-pkgver=r6.6f72553
+pkgver=r10.48373f2
 pkgrel=1
 pkgdesc='Tree-based terminal file manager'
 makedepends=('git' 'cargo')
